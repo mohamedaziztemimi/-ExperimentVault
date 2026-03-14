@@ -12,7 +12,7 @@ const createWorkspaceBody = z.object({
     .regex(/^[a-z0-9-]+$/, 'Slug must contain only lowercase letters, numbers, and hyphens'),
 })
 
-export async function workspaceRoutes(fastify: FastifyInstance): Promise<void> {
+export function workspaceRoutes(fastify: FastifyInstance): void {
   // POST /api/workspaces — create workspace
   fastify.post(
     '/',

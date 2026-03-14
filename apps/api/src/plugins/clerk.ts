@@ -12,7 +12,7 @@ declare module 'fastify' {
   }
 }
 
-async function clerkPlugin(fastify: FastifyInstance): Promise<void> {
+function clerkPlugin(fastify: FastifyInstance): void {
   async function authenticate(request: FastifyRequest, reply: FastifyReply): Promise<void> {
     const authHeader = request.headers['authorization']
 
@@ -93,7 +93,7 @@ async function clerkPlugin(fastify: FastifyInstance): Promise<void> {
       clerkUserId,
       userId: user.id,
       workspaceId,
-      role: member.role as 'admin' | 'editor' | 'viewer',
+      role: member.role,
     }
   }
 

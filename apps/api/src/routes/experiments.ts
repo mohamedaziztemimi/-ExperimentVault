@@ -40,7 +40,7 @@ const experimentFields = z.object({
 const createExperimentBody = experimentFields
 const updateExperimentBody = experimentFields.partial()
 
-export async function experimentRoutes(fastify: FastifyInstance): Promise<void> {
+export function experimentRoutes(fastify: FastifyInstance): void {
   // GET /api/experiments — list experiments
   fastify.get(
     '/',

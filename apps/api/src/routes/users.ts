@@ -17,7 +17,7 @@ const inviteUserBody = z.object({
   role: z.enum(['admin', 'editor', 'viewer']),
 })
 
-export async function userRoutes(fastify: FastifyInstance): Promise<void> {
+export function userRoutes(fastify: FastifyInstance): void {
   const resend = new Resend(env.RESEND_API_KEY)
 
   // GET /api/users — list workspace members

@@ -17,7 +17,7 @@ interface ClerkWebhookEvent {
   data: ClerkUserData
 }
 
-export async function webhookRoutes(fastify: FastifyInstance): Promise<void> {
+export function webhookRoutes(fastify: FastifyInstance): void {
   // POST /api/webhooks/clerk — Clerk user sync
   fastify.post('/clerk', async (request, reply) => {
     const svixId = request.headers['svix-id'] as string | undefined
