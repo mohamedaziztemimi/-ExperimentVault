@@ -38,3 +38,21 @@ jobs:
 
       - name: Test
         run: pnpm test
+
+      - name: Build
+        run: pnpm build
+        env:
+          # ── Clerk ─────────────────────────────────────────────────────────
+          # Add all of these in: GitHub repo → Settings → Secrets and variables → Actions
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+          CLERK_WEBHOOK_SECRET: ${{ secrets.CLERK_WEBHOOK_SECRET }}
+
+          # ── Database ──────────────────────────────────────────────────────
+          # Use the Railway public URL (not the .railway.internal one — that only works inside Railway)
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+          # ── App ───────────────────────────────────────────────────────────
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          CORS_ALLOWED_ORIGINS: ${{ secrets.CORS_ALLOWED_ORIGINS }}
+          NODE_ENV: production
