@@ -1,0 +1,6 @@
+{
+  "extends": ["../../.eslintrc.base.json", "next/core-web-vitals"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
